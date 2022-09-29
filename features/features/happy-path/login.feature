@@ -10,5 +10,5 @@ The environmental variables username and password are required.
     On the gccollab login webpage
     When I input {username} for `username`
     And I input {password} for `password`
-    And I click the button Login
-    Then I should be on the gccollab page
+    And I click the button "Login"
+    Then I should be on the `profile` page

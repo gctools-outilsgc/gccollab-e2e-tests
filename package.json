@@ -16,18 +16,19 @@
     "test-webkit": "HAIBUN_SPLIT_SHARED=a-browser=webkit haibun-cli features",
     "test-features": "HAIBUN_SPLIT_SHARED='a-browser=chromium,webkit,firefox,chromium.iPhone 6,chromium.iPad (gen 7) landscape,chromium.iPad Mini,chromium.Pixel 5,chromium.iPhone X landscape,chromium.Kindle Fire HDX,chromium.Moto G4 landscape' haibun-cli features",
     "test-envc": "HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc",
-    "test-envc-10": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc"
+    "test-envc-10": "HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 HAIBUN_ENVC=what=what1,what=what2,also=also1,also=also2 haibun-cli envc",
+    "generate-reports": "HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_INDEX_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=StorageFS npm run test-pipeline-indexes"
+
   },
   "keywords": [],
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/cli": "^1.9.3",
-    "@haibun/storage-fs": "^1.9.3",
-    "@haibun/domain-storage": "^1.9.3",
-    "@haibun/core": "^1.9.3",
-    "@haibun/domain-webpage": "^1.9.3",
-    "@haibun/web-playwright": "^1.9.3",
-    "typescript": "^4.5.5"
+    "@haibun/cli": "^1.9.9",
+    "@haibun/storage-fs": "^1.9.9",
+    "@haibun/domain-storage": "^1.9.9",
+    "@haibun/core": "^1.9.9",
+    "@haibun/domain-webpage": "^1.9.9",
+    "@haibun/web-playwright": "^1.9.9"
   }
 }
