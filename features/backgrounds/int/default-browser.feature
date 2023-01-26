@@ -1,1 +1,1 @@
-Given I'm using `a-browser` browser
+using `a-browser` browser
