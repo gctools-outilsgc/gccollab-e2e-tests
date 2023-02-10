@@ -1,9 +1,7 @@
 
 Feature: Happy path login
 
-This test starts on the login page, enters the username and password, presses Login, and verifies the resulting page is the main page.
-
-The environmental variables username and password are required.
+This flow logs the user in using username and password.
 
     On the gccollab login webpage
     When I input {username} for username
