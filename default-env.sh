@@ -3,8 +3,8 @@ export HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_TRACE=true HAIBUN_O_WE
 export BG_FEATURES=haibun/flows
 export CIPHER=haibun/environments/cipher
 export PUBLIC=haibun/environments/public
-export HAPPY=haibuns/paths/happy
-export REGRESS=haibuns/regressions
+export HAPPY=haibun/paths/happy
+export REGRESS=haibun/regressions
 export HAPPY_CIPHER=$HAPPY,$CIPHER,$BG_FEATURES
 export HAPPY_PUBLIC=$HAPPY,$PUBLIC,$BG_FEATURES
 export REGRESS_CIPHER=$REGRESS,$CIPHER,$BG_FEATURES
