@@ -1,3 +1,4 @@
 
-    create found reviews
-    publish found results
+create found reviews
+create found index
+publish found results
