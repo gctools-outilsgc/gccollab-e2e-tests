@@ -1,10 +1,13 @@
 
 Feature: Upload a file, then download it and verify it's the same file
 
-Backgrounds: service/locations, auth/login
+Backgrounds: service/locations, auth/login, gccollab/account, gccollab/files
 
         Set unique title to [SERIALTIME]
+        Click on gccollab link
+        Click the link English
         Click on account menu
+        Should be on the gccollab newsfeed page
         Click on profile menu item
 
         pause for 1s
@@ -14,6 +17,7 @@ Backgrounds: service/locations, auth/login
         Input unique title for file title
         Press Tab
         Press Tab
+        pause for 1s
         Type "Description for the upload"
 
         Click on "Tag and Create"
@@ -26,6 +30,8 @@ Backgrounds: service/locations, auth/login
         Press Tab
         Press Tab
         Press Enter
+        Should see "Main folder"
+        Pause for 1s
 
         Should see unique title
         Click by text unique title

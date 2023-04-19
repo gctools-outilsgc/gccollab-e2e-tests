@@ -7,7 +7,9 @@
   },
   "scripts": {
     "cli-help": "haibun-cli features --help",
+    "test-public": ". ./default-env.sh && haibun-cli $ALL_PUBLIC",
     "test-public-happy": ". ./default-env.sh && haibun-cli $HAPPY_PUBLIC",
+    "test-public-regressions": ". ./default-env.sh && haibun-cli $REGRESS_PUBLIC",
     "test-cipher": ". ./default-env.sh && haibun-cli $ALL_CIPHER",
     "test-cipher-happy": ". ./default-env.sh && haibun-cli $HAPPY_CIPHER",
     "test-cipher-regressions": ". ./default-env.sh && haibun-cli $REGRESS_CIPHER",
@@ -23,12 +25,12 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/cli": "1.24",
-    "@haibun/core": "1.24",
-    "@haibun/domain-storage": "1.24",
-    "@haibun/domain-webpage": "1.24",
-    "@haibun/out-review": "1.24",
-    "@haibun/storage-fs": "1.24",
-    "@haibun/web-playwright": "1.24"
+    "@haibun/cli": "1.25",
+    "@haibun/core": "1.25",
+    "@haibun/domain-storage": "1.25",
+    "@haibun/domain-webpage": "1.25",
+    "@haibun/out-review": "1.25",
+    "@haibun/storage-fs": "1.25",
+    "@haibun/web-playwright": "1.25"
   }
 }
