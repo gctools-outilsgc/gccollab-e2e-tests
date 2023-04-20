@@ -26,26 +26,19 @@ jobs:
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
         - task: CmdLine@2  
-          displayName: 'Running login e2e tests'
+          displayName: 'Running path e2e tests'
           continueOnError: true
           inputs:
             script: |
-              npm run
-              HAIBUN_TITLE="Login e2e tests" HAIBUN_DEST=e2e HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-pipeline-login
+              mkdir junit
+              HAIBUN_OUTPUT_DEST=junit/paths.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="Path e2e tests" HAIBUN_DEST=e2e HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-public-happy
 
         - task: CmdLine@2 
           displayName: 'Running regression e2e tests'
           continueOnError: true        
           inputs:
             script: |
-              HAIBUN_TITLE="Regression e2e tests" HAIBUN_DEST=regressions HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-pipeline-regressions
-
-        # - task: CmdLine@2 
-        #   displayName: 'Running positive e2e tests'
-        #   continueOnError: true        
-        #   inputs:
-        #     script: |
-        #       HAIBUN_TITLE="Positive e2e tests" HAIBUN_DEST=positive HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-pipeline-positive
+              HAIBUN_OUTPUT_DEST=junit/regressions.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="Regression e2e tests" HAIBUN_DEST=regressions HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-public-regressions
 
         - task: CmdLine@2
           displayName: 'Generate sarif indexes'
@@ -61,6 +54,7 @@ jobs:
             script: |
               HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_INDEX_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=e2e-reviews-sc HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} npm run test-pipeline-indexes
 
+
   # - job: publish_e2e_artifacts
   #   dependsOn: e2etests
   #   steps:
@@ -73,3 +67,8 @@ jobs:
   #   condition: eq(dependencies.e2etests.result,'Succeeded')
   #   steps:
   #     - script: echo e2e tests passed, continuing.
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'junit/**.xml'
