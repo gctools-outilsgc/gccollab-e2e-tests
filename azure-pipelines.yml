@@ -7,7 +7,7 @@
   #   ref: publish-reviews-sarif
 
 trigger:
-- test-e2e
+- main
 
 jobs:
   - job: e2etests
