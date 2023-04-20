@@ -67,8 +67,9 @@ jobs:
   #   condition: eq(dependencies.e2etests.result,'Succeeded')
   #   steps:
   #     - script: echo e2e tests passed, continuing.
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'junit/**.xml'
+  - job: publish-junit-results
+    steps:
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: 'junit/**.xml'
