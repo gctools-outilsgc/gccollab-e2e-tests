@@ -68,6 +68,7 @@ jobs:
   #   steps:
   #     - script: echo e2e tests passed, continuing.
   - job: publish_junit_results
+    dependsOn: e2etests
     steps:
       - task: PublishTestResults@2
         inputs:
