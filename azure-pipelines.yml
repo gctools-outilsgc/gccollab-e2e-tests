@@ -11,7 +11,7 @@ trigger:
 
 jobs:
   - job: e2etests
-    timeoutInMinutes: 120
+#    timeoutInMinutes: 120
     pool:
         vmImage: 'ubuntu-latest'
     container:
@@ -40,19 +40,19 @@ jobs:
             script: |
               HAIBUN_OUTPUT_DEST=junit/regressions.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="Regression e2e tests" HAIBUN_DEST=regressions HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-public-regressions
 
-        - task: CmdLine@2
-          displayName: 'Generate sarif indexes'
-          continueOnError: true
-          inputs:
-            script: |
-              HAIBUN_DEST=sarif HAIBUN_O_AZURESTORAGEBLOB_DESTINATION='staticanalysis-sc' HAIBUN_O_SARIF_TRACE_STORAGE=AzureStorageBlob HAIBUN_O_SARIF_INDEX_STORAGE=StorageFS HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY}  npm run test-pipeline-index-sarif
+#        - task: CmdLine@2
+        #   displayName: 'Generate sarif indexes'
+        #   continueOnError: true
+        #   inputs:
+        #     script: |
+        #       HAIBUN_DEST=sarif HAIBUN_O_AZURESTORAGEBLOB_DESTINATION='staticanalysis-sc' HAIBUN_O_SARIF_TRACE_STORAGE=AzureStorageBlob HAIBUN_O_SARIF_INDEX_STORAGE=StorageFS HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY}  npm run test-pipeline-index-sarif
 
-        - task: CmdLine@2
-          displayName: 'Generate test result indexes'
-          continueOnError: true
-          inputs:
-            script: |
-              HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_INDEX_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=e2e-reviews-sc HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} npm run test-pipeline-indexes
+        # - task: CmdLine@2
+        #   displayName: 'Generate test result indexes'
+        #   continueOnError: true
+        #   inputs:
+        #     script: |
+        #       HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_INDEX_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=e2e-reviews-sc HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} npm run test-pipeline-indexes
 
 
   # - job: publish_e2e_artifacts
@@ -68,7 +68,7 @@ jobs:
   #   steps:
   #     - script: echo e2e tests passed, continuing.
 
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: 'junit/**.xml'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'junit/**.xml'
