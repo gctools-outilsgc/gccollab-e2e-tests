@@ -17,6 +17,7 @@ jobs:
 #    timeoutInMinutes: 120
     pool:
         vmImage: 'ubuntu-latest'
+
     container:
         image: mcr.microsoft.com/playwright:focal
         volumes: [e2e-reviews]
@@ -29,20 +30,29 @@ jobs:
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
         - task: CmdLine@2  
-          displayName: 'Running path e2e tests'
-          continueOnError: true
+          displayName: 'make junit test directory'
+          continueOnError: false
           inputs:
             script: |
               mkdir junit
+        - task: CmdLine@2  
+          displayName: 'Running path e2e tests'
+          continueOnError: true
+          env:
+            _ENVC: $(_ENVC)
+          inputs:
+            script: |
               npm run test-public-happy
 
         - task: CmdLine@2 
           displayName: 'Running regression e2e tests'
           continueOnError: true        
+          env:
+            _ENVC: $(_ENVC)
           inputs:
             script: |
               npm run test-public-regressions
-
+ 
 #        - task: CmdLine@2
         #   displayName: 'Generate sarif indexes'
         #   continueOnError: true
