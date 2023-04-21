@@ -1,4 +1,4 @@
 
 Feature: Happy path login
 
-    Backgrounds: service/locations, auth/login
+    Backgrounds: service/set-locations, auth/login, gccollab/set-login

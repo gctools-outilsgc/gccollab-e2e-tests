@@ -31,14 +31,14 @@ jobs:
           inputs:
             script: |
               mkdir junit
-              HAIBUN_OUTPUT_DEST=junit/paths.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="Path e2e tests" HAIBUN_DEST=e2e HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-public-happy
+              npm run test-public-happy
 
         - task: CmdLine@2 
           displayName: 'Running regression e2e tests'
           continueOnError: true        
           inputs:
             script: |
-              HAIBUN_OUTPUT_DEST=junit/regressions.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="Regression e2e tests" HAIBUN_DEST=regressions HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_ENVC=${_ENVC} npm run test-public-regressions
+              npm run test-public-regressions
 
 #        - task: CmdLine@2
         #   displayName: 'Generate sarif indexes'

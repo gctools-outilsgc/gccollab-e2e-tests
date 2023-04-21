@@ -25,13 +25,14 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/azure": "^1.13.6",
     "@haibun/cli": "1.25",
     "@haibun/core": "1.25",
     "@haibun/domain-storage": "1.25",
     "@haibun/domain-webpage": "1.25",
     "@haibun/out-review": "1.25",
+    "@haibun/out-xunit": "^1.25.0",
     "@haibun/storage-fs": "1.25",
+    "@haibun/web-accessibility-axe": "^1.22.0",
     "@haibun/web-playwright": "1.25"
   }
 }
