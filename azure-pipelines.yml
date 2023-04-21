@@ -6,6 +6,9 @@
   #   name: jaysonmc/temp-ocio-powerplatform-bdd-tests
   #   ref: publish-reviews-sarif
 
+variables: 
+  _ENVC: ${_ENVC}
+
 trigger:
 - main
 
