@@ -42,6 +42,7 @@ jobs:
             _ENVC: $(_ENVC)
           inputs:
             script: |
+              echo $_ENVC
               npm run test-public-happy
 
         - task: CmdLine@2 
