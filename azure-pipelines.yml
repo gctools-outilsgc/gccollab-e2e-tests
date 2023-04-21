@@ -68,19 +68,19 @@ jobs:
         #     script: |
         #       HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_INDEX_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=e2e-reviews-sc HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} npm run test-pipeline-indexes
 
+  - job: publish_e2e_artifacts
+    dependsOn: e2etests
+    steps:
+      - publish: '$(System.DefaultWorkingDirectory)'
+        artifact: e2e_capture
+        displayName: Publish e2e artifact            
 
-  # - job: publish_e2e_artifacts
-  #   dependsOn: e2etests
-  #   steps:
-  #     - publish: '$(System.DefaultWorkingDirectory)'
-  #       artifact: e2e_capture
-  #       displayName: Publish e2e artifact            
+  - job: exit_if_failed
+    dependsOn: publish_e2e_artifacts
+    condition: eq(dependencies.e2etests.result,'Succeeded')
+    steps:
+      - script: echo e2e tests passed, continuing.
 
-  # - job: exit_if_failed
-  #   dependsOn: publish_e2e_artifacts
-  #   condition: eq(dependencies.e2etests.result,'Succeeded')
-  #   steps:
-  #     - script: echo e2e tests passed, continuing.
   - job: publish_junit_results
     dependsOn: e2etests
     steps:
