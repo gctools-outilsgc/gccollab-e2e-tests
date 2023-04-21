@@ -13,7 +13,7 @@
     "test-cipher": ". ./default-env.sh && haibun-cli $ALL_CIPHER",
     "test-cipher-happy": ". ./default-env.sh && haibun-cli $HAPPY_CIPHER",
     "test-cipher-regressions": ". ./default-env.sh && haibun-cli $REGRESS_CIPHER",
-    "publish": "HAIBUN_O_OUTREVIEWS_TRACE_STORAGE=StorageFS haibun-cli publish",
+    "publish-captures-indexes": "haibun-cli publish",
     "test-chromium": ". ./default-env.sh && HAIBUN_SPLIT_SHARED=a-browser=chromium haibun-cli $ALL_CIPHER",
     "test-some": ". ./default-env.sh && HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 haibun-cli $ALL_CIPHER",
     "test-many": ". ./default-env.sh && HAIBUN_LOOPS=5 HAIBUN_MEMBERS=5 haibun-cli $ALL_CIPHER",
@@ -30,9 +30,7 @@
     "@haibun/domain-storage": "1.25",
     "@haibun/domain-webpage": "1.25",
     "@haibun/out-review": "1.25",
-    "@haibun/out-xunit": "^1.25.0",
     "@haibun/storage-fs": "1.25",
-    "@haibun/web-accessibility-axe": "^1.22.0",
     "@haibun/web-playwright": "1.25"
   }
 }
