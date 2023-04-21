@@ -7,7 +7,7 @@
   #   ref: publish-reviews-sarif
 
 variables: 
-  _ENVC: ${_ENVC}
+  group: e2e-creds
 
 trigger:
 - main
