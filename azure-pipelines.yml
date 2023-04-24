@@ -1,13 +1,6 @@
-# resources:
-  # repositories:
-  # - repository: e2etest # The name used to reference this repository in the checkout step
-  #   type: github
-  #   endpoint: jaysonmc
-  #   name: jaysonmc/temp-ocio-powerplatform-bdd-tests
-  #   ref: publish-reviews-sarif
 
-variables: 
-  group: e2e-creds
+#variables: 
+  #group: e2e-creds
 
 trigger:
 - main
@@ -29,32 +22,32 @@ jobs:
             command: 'install'
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
-        - task: CmdLine@2  
+        - task: CmdLine@2
           displayName: 'make junit test directory'
           continueOnError: false
           inputs:
             script: |
               mkdir junit
-        - task: CmdLine@2  
+        - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
           env:
             _ENVC: $(_ENVC)
           inputs:
             script: |
-              echo "_ENVC: ${_ENVC}"
+              echo "_ENVC: $_ENVC"
               npm run test-public-happy
 
-        - task: CmdLine@2 
+        - task: CmdLine@2
           displayName: 'Running regression e2e tests'
-          continueOnError: true        
+          continueOnError: true
           env:
             _ENVC: $(_ENVC)
           inputs:
             script: |
               npm run test-public-regressions
  
-#        - task: CmdLine@2
+#        - task: CmdLine@2 
         #   displayName: 'Generate sarif indexes'
         #   continueOnError: true
         #   inputs:
