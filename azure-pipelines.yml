@@ -1,10 +1,3 @@
-# resources:
-  # repositories:
-  # - repository: e2etest # The name used to reference this repository in the checkout step
-  #   type: github
-  #   endpoint: jaysonmc
-  #   name: jaysonmc/temp-ocio-powerplatform-bdd-tests
-  #   ref: publish-reviews-sarif
 
 #variables: 
   #group: e2e-creds
@@ -38,8 +31,6 @@ jobs:
         - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
-          env:
-            _ENVC: $(_ENVC)
           inputs:
             script: |
               echo "_ENVC: $_ENVC"
@@ -48,8 +39,6 @@ jobs:
         - task: CmdLine@2
           displayName: 'Running regression e2e tests'
           continueOnError: true        
-          env:
-            _ENVC: $(_ENVC)
           inputs:
             script: |
               npm run test-public-regressions
