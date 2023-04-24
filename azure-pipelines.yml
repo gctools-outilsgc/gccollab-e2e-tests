@@ -6,8 +6,8 @@
   #   name: jaysonmc/temp-ocio-powerplatform-bdd-tests
   #   ref: publish-reviews-sarif
 
-variables: 
-  group: e2e-creds
+#variables: 
+  #group: e2e-creds
 
 trigger:
 - main
