@@ -31,6 +31,8 @@ jobs:
         - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
+          env:
+            _ENVC: $(_ENVC)
           inputs:
             script: |
               echo "_ENVC: $_ENVC"
@@ -38,7 +40,9 @@ jobs:
 
         - task: CmdLine@2
           displayName: 'Running regression e2e tests'
-          continueOnError: true        
+          continueOnError: true
+          env:
+            _ENVC: $(_ENVC)
           inputs:
             script: |
               npm run test-public-regressions
