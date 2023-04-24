@@ -1,7 +1,7 @@
 
 Feature: Upload a file, then download it and verify it's the same file
 
-Backgrounds: service/set-locations, auth/login, gccollab/set-account, gccollab/set-files
+Backgrounds: service/set-locations, auth/login, gccollab/set-account, gccollab/set-files, gccollab/set-login
 
         Set unique title to [SERIALTIME]
         Click on gccollab link

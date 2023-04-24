@@ -6,7 +6,6 @@
     "~@haibun/domain-storage/build/domain-storage",
     "~@haibun/out-review/build/out-reviews-stepper",
     "~@haibun/web-accessibility-axe/build/a11y-axe-stepper",
-    "~@haibun/out-xunit/build/out-xunit",
     "~@haibun/storage-fs/build/storage-fs",
     "vars",
     "credentials",
