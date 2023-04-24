@@ -29,23 +29,23 @@ jobs:
             command: 'install'
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
-        - task: Bash@3 
+        - task: CmdLine@2
           displayName: 'make junit test directory'
           continueOnError: false
           inputs:
             script: |
               mkdir junit
-        - task: Bash@3   
+        - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
           env:
             _ENVC: $(_ENVC)
           inputs:
             script: |
-              echo "_ENVC: ${_ENVC}"
+              echo "_ENVC: %_ENVC%"
               npm run test-public-happy
 
-        - task: Bash@3 
+        - task: CmdLine@2
           displayName: 'Running regression e2e tests'
           continueOnError: true        
           env:
@@ -54,14 +54,14 @@ jobs:
             script: |
               npm run test-public-regressions
  
-#        - task: Bash@3 
+#        - task: CmdLine@2 
         #   displayName: 'Generate sarif indexes'
         #   continueOnError: true
         #   inputs:
         #     script: |
         #       HAIBUN_DEST=sarif HAIBUN_O_AZURESTORAGEBLOB_DESTINATION='staticanalysis-sc' HAIBUN_O_SARIF_TRACE_STORAGE=AzureStorageBlob HAIBUN_O_SARIF_INDEX_STORAGE=StorageFS HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY}  npm run test-pipeline-index-sarif
 
-        - task: Bash@3 
+        - task: CmdLine@2
           displayName: 'Generate test result indexes'
           continueOnError: true
           inputs:
