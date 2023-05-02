@@ -8,8 +8,8 @@
   "scripts": {
     "cli-help": "haibun-cli features --help",
     "test-public": ". ./default-env.sh && haibun-cli $ALL_PUBLIC",
-    "test-public-happy": ". ./default-env.sh && HAIBUN_OUTPUT_DEST=junit/public-happy.xml HAIBUN_O_AZURE_SETTING=happy/ haibun-cli $HAPPY_PUBLIC",
-    "test-public-regressions": ". ./default-env.sh && HAIBUN_OUTPUT_DEST=junit/public-regressions.xml HAIBUN_O_AZURE_SETTING=regressions/ haibun-cli $REGRESS_PUBLIC",
+    "test-public-happy": ". ./default-env.sh && HAIBUN_OUTPUT_DEST=junit/public-happy.xml HAIBUN_SETTING=happy/ haibun-cli $HAPPY_PUBLIC",
+    "test-public-regressions": ". ./default-env.sh && HAIBUN_OUTPUT_DEST=junit/public-regressions.xml HAIBUN_SETTING=regressions/ haibun-cli $REGRESS_PUBLIC",
     "test-cipher": ". ./default-env.sh && haibun-cli $ALL_CIPHER",
     "test-cipher-happy": ". ./default-env.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-happy.xml $HAPPY_CIPHER",
     "test-cipher-regressions": ". ./default-env.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-regressions.xml $REGRESS_CIPHER",
