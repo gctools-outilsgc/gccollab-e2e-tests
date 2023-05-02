@@ -38,6 +38,15 @@ jobs:
               npm run test-public-happy
 
         - task: CmdLine@2
+          displayName: 'Running a11y e2e tests'
+          continueOnError: true
+          env:
+            _ENVC: $(_ENVC)
+          inputs:
+            script: |
+              npm run test-public-a11y
+
+        - task: CmdLine@2
           displayName: 'Running regression e2e tests'
           continueOnError: true
           env:

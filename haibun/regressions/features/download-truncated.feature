@@ -31,7 +31,7 @@ Backgrounds: service/set-locations, auth/login, gccollab/set-account, gccollab/s
         Press Tab
         Press Enter
         Should see "Main folder"
-        Pause for 1s
+        Pause for 2s
 
         Should see unique title
         Click by text unique title
