@@ -35,7 +35,6 @@ jobs:
             _ENVC: $(_ENVC)
           inputs:
             script: |
-              echo "_ENVC: $_ENVC"
               npm run test-public-happy
 
         - task: CmdLine@2
@@ -61,23 +60,24 @@ jobs:
             script: |
               npm run publish-azure-captures-indexes
 
-  - job: publish_e2e_artifacts
-    dependsOn: e2etests
-    steps:
-      - publish: '$(System.DefaultWorkingDirectory)'
-        artifact: e2e_capture
-        displayName: Publish e2e artifact            
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFormat: 'JUnit'
+            testResultsFiles: 'junit/**.xml'
 
-  - job: exit_if_failed
-    dependsOn: publish_e2e_artifacts
-    condition: eq(dependencies.e2etests.result,'Succeeded')
-    steps:
-      - script: echo e2e tests passed, continuing.
+  # - job: publish_e2e_artifacts
+  #   dependsOn: e2etests
+  #   steps:
+  #     - publish: '$(System.DefaultWorkingDirectory)'
+  #       artifact: e2e_capture
+  #       displayName: Publish e2e artifact            
 
-  - job: publish_junit_results
-    dependsOn: e2etests
-    steps:
-      - task: PublishTestResults@2
-        inputs:
-          testResultsFormat: 'JUnit'
-          testResultsFiles: 'junit/**.xml'
+  # - job: exit_if_failed
+  #   dependsOn: publish_e2e_artifacts
+  #   condition: eq(dependencies.e2etests.result,'Succeeded')
+  #   steps:
+  #     - script: echo e2e tests passed, continuing.
+
+  # - job: publish_junit_results
+  #   dependsOn: e2etests
+  #   steps:
