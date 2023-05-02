@@ -27,7 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "@haibun/azure": "^1.25.1",
-    "@haibun/cli": "1.25",
+    "@haibun/cli": "1.25.1",
     "@haibun/core": "1.25",
     "@haibun/domain-storage": "1.25",
     "@haibun/domain-webpage": "1.25",
