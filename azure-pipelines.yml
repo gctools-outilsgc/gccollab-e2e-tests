@@ -1,13 +1,16 @@
+resources:
+  pipelines:
+  - pipeline: post-pr-e2e-tests
+    project: gccollab-IaC-resources
+    source: gctools-outilsgc.gcconnex - PR
+    trigger: true
 
-#variables: 
-  #group: e2e-creds
-
-trigger:
-- main
+variables:
+  HAIBUN_ENVC: username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/newsfeed/
+  HAIBUN_SETTING: pullrequest-
 
 jobs:
   - job: e2etests
-#    timeoutInMinutes: 120
     pool:
         vmImage: 'ubuntu-latest'
 
@@ -31,29 +34,24 @@ jobs:
         - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
-          env:
-            _ENVC: $(_ENVC)
+
           inputs:
             script: |
-              npm run test-public-happy
+              npm run test-pr-happy
 
         # - task: CmdLine@2
         #   displayName: 'Running a11y e2e tests'
         #   continueOnError: true
-        #   env:
-        #     _ENVC: $(_ENVC)
         #   inputs:
         #     script: |
-        #       npm run test-public-a11y
+        #       npm run test-pr-a11y
 
         - task: CmdLine@2
           displayName: 'Running regression e2e tests'
           continueOnError: true
-          env:
-            _ENVC: $(_ENVC)
           inputs:
             script: |
-              npm run test-public-regressions
+              npm run test-pr-regressions
  
 #        - task: CmdLine@2 
         #   displayName: 'Generate sarif indexes'
