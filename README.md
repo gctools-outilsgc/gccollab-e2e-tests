@@ -23,5 +23,5 @@ The junit folder (from above) has to be created separately.
 
 Features are in haibun/.
 
-Take a look at scripts in package.json for more test options.
+Take a look at scripts in package.json and azure-pipelines.yml for more test options.
 
