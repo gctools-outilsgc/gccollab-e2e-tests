@@ -39,6 +39,7 @@ jobs:
           inputs:
             HAIBUN_ENVC: $(HAIBUN_ENVC)
             script: |
+              echo "ENVC: $HAIBUN_ENVC"
               npm run test-pr-happy
 
         # - task: CmdLine@2
