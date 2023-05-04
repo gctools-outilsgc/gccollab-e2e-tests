@@ -25,39 +25,35 @@ jobs:
             command: 'install'
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
+#
         - task: CmdLine@2
-          inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
           displayName: 'make junit test directory'
           continueOnError: false
           inputs:
             script: |
               mkdir junit
+
         - task: CmdLine@2 
-          inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
           displayName: 'Running path e2e tests'
           continueOnError: true
-
           inputs:
+            HAIBUN_ENVC: $(HAIBUN_ENVC)
             script: |
               npm run test-pr-happy
 
         # - task: CmdLine@2
-          inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
         #   displayName: 'Running a11y e2e tests'
         #   continueOnError: true
         #   inputs:
+        #     HAIBUN_ENVC: $(HAIBUN_ENVC)
         #     script: |
         #       npm run test-pr-a11y
 
         - task: CmdLine@2
-          inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
           displayName: 'Running regression e2e tests'
           continueOnError: true
           inputs:
+            HAIBUN_ENVC: $(HAIBUN_ENVC)
             script: |
               npm run test-pr-regressions
  
@@ -96,3 +92,4 @@ jobs:
   # - job: publish_junit_results
   #   dependsOn: e2etests
   #   steps:
+
