@@ -6,7 +6,7 @@ resources:
     trigger: true
 
 variables:
-  HAIBUN_ENVC: username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$(System.PullRequest.PullRequestId).azurewebsites.net/newsfeed/
+  PR: $(System.PullRequest.PullRequestId)
   HAIBUN_SETTING: pullrequest-
 
 jobs:
@@ -37,8 +37,10 @@ jobs:
           displayName: 'Running path e2e tests'
           continueOnError: true
           inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
+            PR: $(PR)
+            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
+              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
               echo "ENVC: $HAIBUN_ENVC"
               npm run test-pr-happy
 
@@ -47,6 +49,7 @@ jobs:
         #   continueOnError: true
         #   inputs:
         #     HAIBUN_ENVC: $(HAIBUN_ENVC)
+        #    HAIBUN_SETTING: $(HAIBUN_SETTING)
         #     script: |
         #       npm run test-pr-a11y
 
@@ -54,8 +57,10 @@ jobs:
           displayName: 'Running regression e2e tests'
           continueOnError: true
           inputs:
-            HAIBUN_ENVC: $(HAIBUN_ENVC)
+            PR: $(PR)
+            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
+              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
               npm run test-pr-regressions
  
 #        - task: CmdLine@2 
