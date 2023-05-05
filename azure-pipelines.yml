@@ -1,13 +1,16 @@
+resources:
+  pipelines:
+  - pipeline: post-pr-e2e-tests
+    project: gccollab-IaC-resources
+    source: gctools-outilsgc.gcconnex - PR
+    trigger: true
 
-#variables: 
-  #group: e2e-creds
-
-trigger:
-- main
+variables:
+  PR: $(System.PullRequest.PullRequestId)
+  HAIBUN_SETTING: pullrequest-
 
 jobs:
   - job: e2etests
-#    timeoutInMinutes: 120
     pool:
         vmImage: 'ubuntu-latest'
 
@@ -22,38 +25,43 @@ jobs:
             command: 'install'
           displayName: 'installing dependencies'
 # using CmdLine for the following instead of Npm because npm buffers the entire output
+#
         - task: CmdLine@2
           displayName: 'make junit test directory'
           continueOnError: false
           inputs:
             script: |
               mkdir junit
+
         - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
-          env:
-            _ENVC: $(_ENVC)
           inputs:
+            PR: $(PR)
+            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
-              npm run test-public-happy
+              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
+              echo "ENVC: $HAIBUN_ENVC"
+              npm run test-pr-happy
 
         # - task: CmdLine@2
         #   displayName: 'Running a11y e2e tests'
         #   continueOnError: true
-        #   env:
-        #     _ENVC: $(_ENVC)
         #   inputs:
+        #     HAIBUN_ENVC: $(HAIBUN_ENVC)
+        #    HAIBUN_SETTING: $(HAIBUN_SETTING)
         #     script: |
-        #       npm run test-public-a11y
+        #       npm run test-pr-a11y
 
         - task: CmdLine@2
           displayName: 'Running regression e2e tests'
           continueOnError: true
-          env:
-            _ENVC: $(_ENVC)
           inputs:
+            PR: $(PR)
+            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
-              npm run test-public-regressions
+              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
+              npm run test-pr-regressions
  
 #        - task: CmdLine@2 
         #   displayName: 'Generate sarif indexes'
@@ -90,3 +98,4 @@ jobs:
   # - job: publish_junit_results
   #   dependsOn: e2etests
   #   steps:
+

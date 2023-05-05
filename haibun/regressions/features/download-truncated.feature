@@ -7,7 +7,7 @@ Backgrounds: service/set-locations, auth/login, gccollab/set-account, gccollab/s
         Click on gccollab link
         Click the link English
         Click on account menu
-        Should be on the gccollab newsfeed page
+        Should be on the `gccollab newsfeed` page
         Click on profile menu item
 
         pause for 1s
