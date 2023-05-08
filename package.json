@@ -12,7 +12,7 @@
     "test-public-a11y": ". ./env-default.sh && HAIBUN_OUTPUT_DEST=junit/public-a11y.xml haibun-cli $PUBLIC_A11Y",
     "test-public-regressions": ". ./env-default.sh && HAIBUN_OUTPUT_DEST=junit/public-regressions.xml haibun-cli $PUBLIC_REGRESS",
     "test-pr": ". ./env-default.sh && haibun-cli $PR_ALL",
-    "test-pr-happy": ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-happy.xml haibun-cli $PR_HAPPY",
+    "test-pr-happy": ". ./env-default.sh && . ./env-azure.sh && echo $HAIBUN_ENVC && HAIBUN_OUTPUT_DEST=junit/pr-happy.xml haibun-cli $PR_HAPPY",
     "test-pr-a11y": ". ./env-default.sh && HAIBUN_OUTPUT_DEST=junit/pr-a11y.xml haibun-cli $PR_A11Y",
     "test-pr-regressions": ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-regressions.xml haibun-cli $PR_REGRESS",
     "test-cipher": ". ./env-default.sh && haibun-cli $CIPHER_ALL",
