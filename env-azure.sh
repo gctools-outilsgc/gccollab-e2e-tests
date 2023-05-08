@@ -1,0 +1,1 @@
+export HAIBUN_ENVC="username=Haibun,password=Haibun" HAIBUN_ENV="gccollab login=https://gccollab-dev-pr-2530.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-2530.azurewebsites.net/login-ouverturedesession/,gccollab newsfeed=https://gccollab-dev-pr-2530.azurewebsites.net/newsfeed/"

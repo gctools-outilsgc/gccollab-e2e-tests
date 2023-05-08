@@ -40,8 +40,6 @@ jobs:
             PR: $(PR)
             HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
-              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
-              echo "ENVC: $HAIBUN_ENVC"
               npm run test-pr-happy
 
         # - task: CmdLine@2
@@ -60,7 +58,6 @@ jobs:
             PR: $(PR)
             HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
-              export HAIBUN_ENVC="username=Haibun,password=Haibun,gccollab login=https://gccollab-dev-pr-$PR.azurewebsites.net/login-ouverturedesession/,post login=https://gccollab-dev-pr-$PR.azurewebsites.net/profile/Haibun,gccollab newsfeed=https://gccollab-dev-pr-$PR.azurewebsites.net/newsfeed/"
               npm run test-pr-regressions
  
 #        - task: CmdLine@2 
