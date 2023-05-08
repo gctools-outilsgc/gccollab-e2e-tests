@@ -38,7 +38,7 @@ jobs:
           continueOnError: true
           inputs:
             script: |
-              bash -c npm run test-pr-happy
+              bash -c "npm run test-pr-happy"
 
         # - task: CmdLine@2
         #   displayName: 'Running a11y e2e tests'
@@ -54,7 +54,7 @@ jobs:
           continueOnError: true
           inputs:
             script: |
-              npm run test-pr-regressions
+              bash -c "npm run test-pr-regressions"
  
 #        - task: CmdLine@2 
         #   displayName: 'Generate sarif indexes'
