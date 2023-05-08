@@ -37,10 +37,8 @@ jobs:
           displayName: 'Running path e2e tests'
           continueOnError: true
           inputs:
-            PR: $(PR)
-            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
-              npm run test-pr-happy
+              bash -c npm run test-pr-happy
 
         # - task: CmdLine@2
         #   displayName: 'Running a11y e2e tests'
@@ -55,8 +53,6 @@ jobs:
           displayName: 'Running regression e2e tests'
           continueOnError: true
           inputs:
-            PR: $(PR)
-            HAIBUN_SETTING: $(HAIBUN_SETTING)
             script: |
               npm run test-pr-regressions
  
