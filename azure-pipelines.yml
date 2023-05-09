@@ -36,13 +36,12 @@ jobs:
             script: |
               bash -c "npm run test-pr-happy"
 
-        # - task: CmdLine@2
-        #   displayName: 'Running a11y e2e tests'
-        #   continueOnError: true
-        #   inputs:
-        #     HAIBUN_ENVC: $(HAIBUN_ENVC)
-        #     script: |
-        #       npm run test-pr-a11y
+        - task: CmdLine@2
+          displayName: 'Running a11y e2e tests'
+          continueOnError: true
+          inputs:
+            script: |
+              npm run test-pr-a11y
 
         - task: CmdLine@2
           displayName: 'Running regression e2e tests'
