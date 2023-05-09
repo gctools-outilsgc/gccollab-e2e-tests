@@ -5,10 +5,6 @@ resources:
     source: gctools-outilsgc.gcconnex - PR
     trigger: true
 
-variables:
-  PR: $(System.PullRequest.PullRequestId)
-  HAIBUN_SETTING: pullrequest-
-
 jobs:
   - job: e2etests
     pool:
@@ -45,7 +41,6 @@ jobs:
         #   continueOnError: true
         #   inputs:
         #     HAIBUN_ENVC: $(HAIBUN_ENVC)
-        #    HAIBUN_SETTING: $(HAIBUN_SETTING)
         #     script: |
         #       npm run test-pr-a11y
 
