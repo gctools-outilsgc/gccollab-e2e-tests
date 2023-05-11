@@ -25,3 +25,5 @@ Features are in haibun/.
 
 Take a look at scripts in package.json and azure-pipelines.yml for more test options.
 
+
+For further documentation, please see https://github.com/withhaibun/haibun-azure/blob/main/README.md
