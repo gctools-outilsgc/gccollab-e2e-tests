@@ -12,8 +12,8 @@
     "test-public-a11y": ". ./env-default.sh && HAIBUN_OUTPUT_DEST=junit/public-a11y.xml haibun-cli $PUBLIC_A11Y",
     "test-public-regressions": ". ./env-default.sh && HAIBUN_OUTPUT_DEST=junit/public-regressions.xml haibun-cli $PUBLIC_REGRESS",
     "test-pr": ". ./env-default.sh && haibun-cli $PR_ALL",
-    "test-pr-happy":       ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-happy.xml haibun-cli $PR_HAPPY",
-    "test-pr-a11y":        ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-a11y.xml haibun-cli $PR_A11Y",
+    "test-pr-happy": ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-happy.xml haibun-cli $PR_HAPPY",
+    "test-pr-a11y": ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-a11y.xml haibun-cli $PR_A11Y",
     "test-pr-regressions": ". ./env-default.sh && . ./env-azure.sh && HAIBUN_OUTPUT_DEST=junit/pr-regressions.xml haibun-cli $PR_REGRESS",
     "test-cipher": ". ./env-default.sh && haibun-cli $CIPHER_ALL",
     "test-cipher-happy": ". ./env-default.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-happy.xml $CIPHER_HAPPY",
@@ -35,14 +35,14 @@
   "license": "ISC",
   "dependencies": {
     "@haibun/azure": "^1.26.1",
-    "@haibun/cli": "^1.26.2",
-    "@haibun/core": "1.26.1",
-    "@haibun/domain-storage": "1.26.1",
-    "@haibun/domain-webpage": "1.26.1",
-    "@haibun/out-review": "1.26.1",
-    "@haibun/out-xunit": "^1.26.1",
-    "@haibun/storage-fs": "1.26.1",
-    "@haibun/web-accessibility-axe": "^1.22",
-    "@haibun/web-playwright": "1.26.1"
+    "@haibun/cli": "^1.27.0",
+    "@haibun/core": "1.27.0",
+    "@haibun/domain-storage": "1.27.0",
+    "@haibun/domain-webpage": "1.27.0",
+    "@haibun/out-review": "1.27.0",
+    "@haibun/out-xunit": "^1.27.0",
+    "@haibun/storage-fs": "1.27.0",
+    "@haibun/web-accessibility-axe": "^1.22.0",
+    "@haibun/web-playwright": "1.27.0"
   }
 }
