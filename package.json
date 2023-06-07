@@ -42,7 +42,7 @@
     "@haibun/out-review": "1.27.1",
     "@haibun/out-xunit": "^1.27.1",
     "@haibun/storage-fs": "1.27.1",
-    "@haibun/web-accessibility-axe": "^1.22.0",
+    "@haibun/web-accessibility-axe": "1.27",
     "@haibun/web-playwright": "1.27.1"
   }
 }
