@@ -34,7 +34,7 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/azure": "^1.26",
+    "@haibun/azure": "^1.27.3",
     "@haibun/cli": "^1.27.3",
     "@haibun/core": "1.27.3",
     "@haibun/domain-storage": "1.27.3",
