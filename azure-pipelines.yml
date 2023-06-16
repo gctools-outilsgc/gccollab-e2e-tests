@@ -69,7 +69,9 @@ jobs:
           continueOnError: true
           inputs:
             script: |
-              HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_OUTREVIEWS_DASHBOARD_ROOT=/dashboard npm run publish-azure-dashboard
+              pwd
+              ls -la
+              npm run publish-azure-dashboard
 
         - task: PublishTestResults@2
           inputs:
