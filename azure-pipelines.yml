@@ -62,7 +62,7 @@ jobs:
           continueOnError: true
           inputs:
             script: |
-              npm run publish-azure-captures-indexes
+              HAIBUN_O_OUTREVIEWS_DASHBOARD_ROOT=/dashboard npm run publish-azure-captures-indexes
 
         - task: PublishTestResults@2
           inputs:
