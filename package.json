@@ -40,7 +40,7 @@
     "@haibun/cli": "^1.28.5",
     "@haibun/core": "1.28.5",
     "@haibun/domain-storage": "1.28.5",
-    "@haibun/domain-webpage": "1.28.5",
+    "@haibun/domain-webpage": "1.28.6",
     "@haibun/out-review": "^1.28.5",
     "@haibun/out-xunit": "^1.28.5",
     "@haibun/storage-fs": "1.28.5",
