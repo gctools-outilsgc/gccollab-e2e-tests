@@ -40,11 +40,11 @@
     "@haibun/cli": "^1.28.5",
     "@haibun/core": "1.28.5",
     "@haibun/domain-storage": "1.28.5",
-    "@haibun/domain-webpage": "1.28.6",
+    "@haibun/domain-webpage": "^1.28.7",
     "@haibun/out-review": "^1.28.5",
     "@haibun/out-xunit": "^1.28.5",
     "@haibun/storage-fs": "1.28.5",
     "@haibun/web-accessibility-axe": "1.28.5",
-    "@haibun/web-playwright": "1.28.5"
+    "@haibun/web-playwright": "1.28.6"
   }
 }
