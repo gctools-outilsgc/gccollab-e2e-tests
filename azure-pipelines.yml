@@ -62,7 +62,14 @@ jobs:
           continueOnError: true
           inputs:
             script: |
-              HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_OUTREVIEWS_DASHBOARD_ROOT=/dashboard npm run publish-azure-captures-indexes
+              npm run publish-azure-captures-indexes
+
+        - task: CmdLine@2
+          displayName: 'Generate dashboard'
+          continueOnError: true
+          inputs:
+            script: |
+              HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_OUTREVIEWS_DASHBOARD_ROOT=/dashboard npm run publish-dashboard
 
         - task: PublishTestResults@2
           inputs:
