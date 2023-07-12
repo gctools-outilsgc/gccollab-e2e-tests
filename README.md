@@ -25,5 +25,10 @@ Features are in haibun/.
 
 Take a look at scripts in package.json and azure-pipelines.yml for more test options.
 
+## Implementation detalis
+
+The `publish-reviews-azure` task will use blob flattened paths for expiration in filenames.
+The `publish-dashboard-azure` task will use blob directories and files.
 
 For further documentation, please see https://github.com/withhaibun/haibun-azure/blob/main/README.md
+

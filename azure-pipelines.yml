@@ -55,23 +55,23 @@ jobs:
         #   continueOnError: true
         #   inputs:
         #     script: |
-        #       HAIBUN_DEST=sarif HAIBUN_O_AZURESTORAGEBLOB_DESTINATION='staticanalysis-sc' HAIBUN_O_SARIF_TRACE_STORAGE=AzureStorageBlob HAIBUN_O_SARIF_INDEX_STORAGE=StorageFS HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY}  npm run test-pipeline-index-sarif
+        #       HAIBUN_DEST=sarif HAIBUN_O_AZURESTORAGEBLOB_DESTINATION='staticanalysis-sc' HAIBUN_O_SARIF_TRACKS_STORAGE=AzureStorageBlob HAIBUN_O_SARIF_INDEX_STORAGE=StorageFS HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY}  npm run test-pipeline-index-sarif
 
         - task: CmdLine@2
           displayName: 'Generate test result indexes'
           continueOnError: true
           inputs:
             script: |
-              npm run publish-azure-captures-indexes
+              npm run publish-reviews-azure
 
         - task: CmdLine@2
-          displayName: 'Generate dashboard'
+          displayName: 'Publish dashboard'
           continueOnError: true
           inputs:
             script: |
               pwd
               ls -la
-              npm run publish-azure-dashboard
+              npm run publish-dashboard-azure
 
         - task: PublishTestResults@2
           inputs:
