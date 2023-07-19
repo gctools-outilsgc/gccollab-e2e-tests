@@ -36,15 +36,16 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/azure": "^1.28.19",
-    "@haibun/cli": "^1.28.19",
-    "@haibun/core": "^1.28.19",
-    "@haibun/domain-storage": "1.28.19",
-    "@haibun/domain-webpage": "^1.28.20",
-    "@haibun/out-review": "^1.28.19",
-    "@haibun/out-xunit": "^1.28.19",
-    "@haibun/storage-fs": "1.28.19",
-    "@haibun/web-accessibility-axe": "1.28.19",
-    "@haibun/web-playwright": "1.28.19"
+    "@haibun/azure": "^1.29.0",
+    "@haibun/cli": "^1.29.0",
+    "@haibun/core": "^1.29.0",
+    "@haibun/domain-storage": "1.29.0",
+    "@haibun/domain-webpage": "^1.29.0",
+    "@haibun/out-review": "^1.29.0",
+    "@haibun/out-xunit": "^1.29.0",
+    "@haibun/storage-fs": "1.29.0",
+    "@haibun/web-accessibility-axe": "1.29.0",
+    "@haibun/web-playwright": "1.29.0"
   }
 }
+
