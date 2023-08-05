@@ -25,6 +25,7 @@
     "clear-local-captures": "HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true haibun-cli --config clear/local clear",
     "clear-azure-captures": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=${_O_AZURESTORAGEBLOB_DESTINATION} HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
     "azure-storage": "npm run clear-azure-captures && npm run test-public ; npm run publish-azure-captures-indexes",
+    "review": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS haibun-cli -c review/local review/",
     "test-chromium": ". ./env-default.sh && HAIBUN_SPLIT_SHARED=a-browser=chromium haibun-cli $CIPHER_ALL",
     "test-some": ". ./env-default.sh && HAIBUN_LOOPS=2 HAIBUN_MEMBERS=5 haibun-cli $CIPHER_ALL",
     "test-many": ". ./env-default.sh && HAIBUN_LOOPS=5 HAIBUN_MEMBERS=5 haibun-cli $CIPHER_ALL",
