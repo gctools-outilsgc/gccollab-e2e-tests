@@ -18,12 +18,15 @@
     "test-cipher": ". ./env-default.sh && haibun-cli $CIPHER_ALL",
     "test-cipher-happy": ". ./env-default.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-happy.xml $CIPHER_HAPPY",
     "test-cipher-regressions": ". ./env-default.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-regressions.xml $CIPHER_REGRESS",
-    "publish-reviews-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-reviews/local publish-reviews",
-    "publish-reviews-azure": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=${_O_AZURESTORAGEBLOB_DESTINATION} HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} haibun-cli --config publish-reviews/azure publish-reviews",
-    "publish-dashboard-azure": "HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_OUTREVIEWS_PUBLISH_ROOT=/dashboard HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_OUTREVIEWS_REVIEWS_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=${_O_AZURESTORAGEBLOB_DESTINATION} HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} HAIBUN_O_OUTREVIEWS_URI_ARGS=${_O_OUTREVIEWS_URI_ARGS} haibun-cli --config publish-dashboard/azure publish-dashboard",
-    "publish-dashboard-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-dashboard/local publish-dashboard",
+    "publish-history-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-history/local publish-history",
+    "publish-reviewer-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-reviewer/local publish-reviewer",
+
+    "publish-history-azure": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=tracks HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config publish-history/azure publish-history",
+    "publish-reviewer-azure": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_ROOT='' HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=reviewer HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config publish-reviewer/azure publish-reviewer",
+
     "clear-local-captures": "HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true haibun-cli --config clear/local clear",
-    "clear-azure-captures": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=${_O_AZURESTORAGEBLOB_DESTINATION} HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
+    "clear-azure-reviewer": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=reviewer HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
+    "clear-azure-tracks": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=tracks HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
     "azure-storage": "npm run clear-azure-captures && npm run test-public ; npm run publish-azure-captures-indexes",
     "review": "HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS haibun-cli -c review/local review/",
     "test-chromium": ". ./env-default.sh && HAIBUN_SPLIT_SHARED=a-browser=chromium haibun-cli $CIPHER_ALL",
@@ -37,16 +40,15 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/azure": "^1.29.1",
-    "@haibun/cli": "^1.29.1",
-    "@haibun/core": "^1.29.1",
-    "@haibun/domain-storage": "1.29.1",
-    "@haibun/domain-webpage": "^1.29.1",
-    "@haibun/out-review": "^1.29.1",
-    "@haibun/out-xunit": "^1.29.1",
-    "@haibun/storage-fs": "1.29.1",
-    "@haibun/web-accessibility-axe": "1.29.1",
-    "@haibun/web-playwright": "1.29.1"
+    "@haibun/azure": "^1.30.7",
+    "@haibun/cli": "^1.30.7",
+    "@haibun/core": "^1.30.7",
+    "@haibun/domain-storage": "1.30.7",
+    "@haibun/domain-webpage": "^1.30.7",
+    "@haibun/out-review": "^1.30.7",
+    "@haibun/out-xunit": "^1.30.7",
+    "@haibun/storage-fs": "1.30.7",
+    "@haibun/web-accessibility-axe": "1.30.7",
+    "@haibun/web-playwright": "1.30.7"
   }
 }
-
