@@ -2,4 +2,6 @@
 Feature: A11Y Login
 
     Backgrounds: set-locations, auth/login
-    page is accessible accepting serious 9 and moderate 9
+    page is accessible accepting serious 0 and moderate 0
+
+
