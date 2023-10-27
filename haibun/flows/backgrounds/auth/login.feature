@@ -1,6 +1,3 @@
-
-Feature: Login
-
 This flow logs the user in using username and password.
 
     Go to the gccollab login webpage
