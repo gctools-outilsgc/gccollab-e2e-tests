@@ -4,7 +4,7 @@ fi
 
 export HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_TRACE=true HAIBUN_O_WEBPLAYWRIGHT_STORAGE=StorageFS HAIBUN_DEST=e2e \
     HAIBUN_O_WEBPLAYWRIGHT_CAPTURE_VIDEO=true HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=$HAIBUN_O_WEBPLAYWRIGHT_HEADLESS \
-     HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_TITLE="GCCollab e2e tests"
+     HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="GCCollab e2e tests"
 export BG_FEATURES=haibun/flows
 export CIPHER=haibun/environments/cipher
 export PUBLIC=haibun/environments/public
