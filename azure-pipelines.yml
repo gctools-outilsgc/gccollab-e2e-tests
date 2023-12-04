@@ -11,7 +11,7 @@ jobs:
         vmImage: 'ubuntu-latest'
 
     container:
-        image: mcr.microsoft.com/playwright:focal
+        image: mcr.microsoft.com/playwright:v1.40.1-jammy
         volumes: [e2e-reviews]
 
     steps:
