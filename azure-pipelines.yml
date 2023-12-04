@@ -20,11 +20,9 @@ jobs:
           inputs:
             command: 'install'
           displayName: 'installing dependencies'
-# using CmdLine for the following instead of Npm because npm buffers the entire output
-#
+
         - task: CmdLine@2
-          displayName: 'install playwright deps"
-          continueOnError: false
+          displayName: 'install playwright deps'
           inputs:
             script: |
               npx playwright install --with-deps
@@ -36,6 +34,7 @@ jobs:
             script: |
               mkdir junit
 
+# using CmdLine for the following instead of Npm because npm buffers the entire output
         - task: CmdLine@2 
           displayName: 'Running path e2e tests'
           continueOnError: true
