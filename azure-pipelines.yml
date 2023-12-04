@@ -23,6 +23,13 @@ jobs:
 # using CmdLine for the following instead of Npm because npm buffers the entire output
 #
         - task: CmdLine@2
+          displayName: 'install playwright deps"
+          continueOnError: false
+          inputs:
+            script: |
+              npx playwright install --with-deps
+
+        - task: CmdLine@2
           displayName: 'make junit test directory'
           continueOnError: false
           inputs:
