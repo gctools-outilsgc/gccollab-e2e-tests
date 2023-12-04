@@ -21,11 +21,11 @@ jobs:
             command: 'install'
           displayName: 'installing dependencies'
 
-        - task: CmdLine@2
-          displayName: 'install playwright deps'
-          inputs:
-            script: |
-              npx playwright install --with-deps
+        # - task: CmdLine@2
+        #   displayName: 'install playwright deps'
+        #   inputs:
+        #     script: |
+        #       npx playwright install --with-deps
 
         - task: CmdLine@2
           displayName: 'make junit test directory'
