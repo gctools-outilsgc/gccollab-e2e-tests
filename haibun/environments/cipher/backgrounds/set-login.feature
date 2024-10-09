@@ -1,3 +1,3 @@
-Set username input to //*[@id="id_auth-username"]
-Set password input to //*[@id="id_auth-password"]
-Set Log in to form > fieldset > div.login__buttons > button
+Set username input to //*[@id="username_home"]
+Set password input to //*[@id="password_home"]
+Set Log in to //*[@id="wb-cont"]/div/section/form/fieldset/div[3]/div[3]/button

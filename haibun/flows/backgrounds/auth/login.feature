@@ -3,5 +3,6 @@ This flow logs the user in using username and password.
     Go to the gccollab login webpage
     When I input {username} for username input
     And I input {password} for password input
+    display Log in
     And I click the button Log in
     Then I should be on the post login webpage
