@@ -10,9 +10,9 @@ jobs:
     pool:
         vmImage: 'ubuntu-latest'
 
-    container:
-        image: mcr.microsoft.com/playwright:v1.40.1-jammy
-        volumes: [e2e-reviews]
+    # container:
+        # image: mcr.microsoft.com/playwright:v1.40.1-jammy
+        # volumes: [e2e-reviews]
 
     steps:
         # - checkout: e2etest     
@@ -20,6 +20,12 @@ jobs:
           inputs:
             command: 'install'
           displayName: 'installing dependencies'
+
+        - task: CmdLine@2
+          displayName: 'playwright deps'
+          inputs:
+            script: |
+              npx playwright install
 
         # - task: CmdLine@2
         #   displayName: 'install playwright deps'
