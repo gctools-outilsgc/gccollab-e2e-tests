@@ -68,6 +68,7 @@ jobs:
           inputs:
             script: |
               npm run publish-history-azure
+              find capture
 
         - task: CmdLine@2
           displayName: 'Publish dashboard'
