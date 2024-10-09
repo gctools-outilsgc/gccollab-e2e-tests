@@ -20,10 +20,8 @@
     "test-cipher-regressions": ". ./env-default.sh && haibun-cli HAIBUN_OUTPUT_DEST=junit/cipher-regressions.xml $CIPHER_REGRESS",
     "publish-history-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-history/local publish-history",
     "publish-reviewer-local": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS haibun-cli --config publish-reviewer/local publish-reviewer",
-
     "publish-history-azure": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=tracks HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config publish-history/azure publish-history",
     "publish-reviewer-azure": "HAIBUN_O_OUTREVIEWS_STORAGE=StorageFS HAIBUN_O_OUTREVIEWS_PUBLISH_ROOT='' HAIBUN_O_OUTREVIEWS_PUBLISH_STORAGE=AzureStorageBlob HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=reviewer HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config publish-reviewer/azure publish-reviewer",
-
     "clear-local-captures": "HAIBUN_O_AZURESTORAGEBLOB_STRICT_PATH=true haibun-cli --config clear/local clear",
     "clear-azure-reviewer": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=reviewer HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
     "clear-azure-tracks": "HAIBUN_O_AZURESTORAGEBLOB_DESTINATION=tracks HAIBUN_O_AZURESTORAGEBLOB_ACCOUNT=${_O_AZURESTORAGEBLOB_ACCOUNT} HAIBUN_O_AZURESTORAGEBLOB_KEY=${_O_AZURESTORAGEBLOB_KEY} haibun-cli --config clear/azure clear",
@@ -40,15 +38,15 @@
   "author": "vid",
   "license": "ISC",
   "dependencies": {
-    "@haibun/azure": "^1.32.9",
-    "@haibun/cli": "^1.32.9",
-    "@haibun/core": "^1.32.9",
-    "@haibun/domain-storage": "1.32.9",
-    "@haibun/domain-webpage": "^1.32.9",
+    "@haibun/azure": "^1.40.9",
+    "@haibun/cli": "^1.40.9",
+    "@haibun/core": "^1.40.9",
+    "@haibun/domain-storage": "1.40.9",
+    "@haibun/domain-webpage": "^1.40.9",
     "@haibun/out-review": "^1.32.10",
-    "@haibun/out-xunit": "^1.32.9",
-    "@haibun/storage-fs": "1.32.9",
-    "@haibun/web-accessibility-axe": "1.32.9",
-    "@haibun/web-playwright": "1.32.9"
+    "@haibun/out-xunit": "^1.40.9",
+    "@haibun/storage-fs": "1.40.9",
+    "@haibun/web-accessibility-axe": "1.40.9",
+    "@haibun/web-playwright": "1.40.9"
   }
 }
